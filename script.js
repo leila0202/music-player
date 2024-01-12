@@ -86,6 +86,21 @@ let userData = {
   songCurrentTime: 0,
 };
 
+const playSong = (id) => {
+  const song = userData?.songs.find((song) => id === song.id);
+  audio.src = song.src;
+  audio.title = song.title;
+  if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
+    audio.currentTime = 0;
+  } else {
+    audio.currentTime = userData.songCurrentTime;
+  }
+
+  userData.currentSong = song;
+  playButton.classList.add("playing");
+  audio.play();
+};
+
 const renderSongs = (array) => {
   const songsHTML = array
     .map((song) => {
@@ -109,16 +124,3 @@ const renderSongs = (array) => {
 };
 
 renderSongs(userData?.songs);
-
-const playSong = (id) => {
-  const song = userData?.songs.find((song) => id === song.id);
-  audio.src = song.src;
-  audio.title = song.title;
-  if (userData?.currentSong === null || userData?.currentSong.id !== song.id) {
-    audio.currentTime = 0;
-  } else {
-    audio.currentTime = userData.songCurrentTime;
-  }
-
-  userData.currentSong = song;
-};
