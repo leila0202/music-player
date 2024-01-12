@@ -110,4 +110,6 @@ const renderSongs = (array) => {
 
 renderSongs(userData?.songs);
 
-const playSong = (id) => {};
+const playSong = (id) => {
+  const song = userData?.songs.find((song) => id === song.id);
+};
