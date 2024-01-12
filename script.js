@@ -117,7 +117,13 @@ const playNextSong = () => {
   }
 };
 
-const playPreviousSong = () => {};
+const playPreviousSong = () => {
+  if (userData?.currentSong === null) {
+    return;
+  } else {
+    const currentSongIndex = getCurrentSongIndex();
+  }
+};
 
 const renderSongs = (array) => {
   const songsHTML = array
