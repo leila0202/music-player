@@ -109,3 +109,5 @@ const renderSongs = (array) => {
 };
 
 renderSongs(userData?.songs);
+
+const playSong = (id) => {};
