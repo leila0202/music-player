@@ -123,4 +123,6 @@ const renderSongs = (array) => {
   playlistSongs.innerHTML = songsHTML;
 };
 
+playButton.addEventListener("click", () => {});
+
 renderSongs(userData?.songs);
