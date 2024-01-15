@@ -159,9 +159,12 @@ const deleteSong = (id) => {
     resetButton.ariaLabel = "Reset playlist";
     resetButton.appendChild(resetText);
     playlistSongs.appendChild(resetButton);
-
+    //Finally, you should render the songs again, update the play button's accessible text, and remove the reset button from the playlist. You also need to remove the resetButton from the DOM.
     resetButton.addEventListener("click", () => {
       userData.songs = [...allSongs];
+      renderSongs(userData?.songs);
+      setPlayButtonAccessibleText();
+      resetButton.remove();
     });
   }
 };
