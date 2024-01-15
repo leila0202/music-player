@@ -105,7 +105,6 @@ const shuffle = () => {
   setPlayButtonAccessibleText();
 };
 
-//Before deleting a song, you need to check if the song is currently playing. If it is, you need to pause the song and play the next song in the playlist.
 const deleteSong = (id) => {
   if (userData?.currentSong?.id === id) {
     userData.currentSong = null;
@@ -124,7 +123,6 @@ const deleteSong = (id) => {
     resetButton.ariaLabel = "Reset playlist";
     resetButton.appendChild(resetText);
     playlistSongs.appendChild(resetButton);
-    //Finally, you should render the songs again, update the play button's accessible text, and remove the reset button from the playlist. You also need to remove the resetButton from the DOM.
     resetButton.addEventListener("click", () => {
       userData.songs = [...allSongs];
       renderSongs(userData?.songs);
@@ -207,7 +205,10 @@ previousButton.addEventListener("click", playPreviousSong);
 
 shuffleButton.addEventListener("click", shuffle);
 
-audio.addEventListener("ended", () => {});
+audio.addEventListener("ended", () => {
+  const currentSongIndex = getCurrentSongIndex();
+  const nextSongExists = userData?.songs[currentSongIndex + 1] !== undefined;
+});
 
 renderSongs(userData?.songs);
 setPlayButtonAccessibleText();
