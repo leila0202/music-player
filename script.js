@@ -130,7 +130,9 @@ const playPreviousSong = () => {
   }
 };
 
-const shuffle = () => {};
+const shuffle = () => {
+  userData?.songs.sort(() => Math.random() - 0.5);
+};
 
 const setPlayerDisplay = () => {
   const playingSong = document.getElementById("player-song-title");
