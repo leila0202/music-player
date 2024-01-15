@@ -132,6 +132,7 @@ const highlightCurrentSong = () => {
   const songToHighlight = document.getElementById(
     `song-${userData?.currentSong?.id}`
   );
+  playlistSongElements.forEach((songEl) => {});
 };
 
 const renderSongs = (array) => {
