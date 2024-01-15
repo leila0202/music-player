@@ -243,3 +243,4 @@ previousButton.addEventListener("click", playPreviousSong);
 shuffleButton.addEventListener("click", shuffle);
 
 renderSongs(userData?.songs);
+setPlayButtonAccessibleText();
