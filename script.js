@@ -143,6 +143,10 @@ const shuffle = () => {
 //Before deleting a song, you need to check if the song is currently playing. If it is, you need to pause the song and play the next song in the playlist.
 const deleteSong = (id) => {
   if (userData?.currentSong?.id === id) {
+    userData.currentSong = null;
+    userData.songCurrentTime = 0;
+    pauseSong();
+    setPlayerDisplay();
   }
   userData.songs = userData?.songs.filter((song) => song.id !== id);
   renderSongs(userData?.songs);
