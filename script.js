@@ -113,7 +113,11 @@ const deleteSong = (id) => {
     setPlayerDisplay();
   }
   userData.songs = userData?.songs.filter((song) => song.id !== id);
-  userData?.songs.sort((a, b) => {});
+  userData?.songs.sort((a, b) => {
+    if (a.title < b.title) {
+      return -1;
+    }
+  });
   renderSongs(userData?.songs);
   highlightCurrentSong();
   setPlayButtonAccessibleText();
