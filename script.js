@@ -121,6 +121,8 @@ const deleteSong = (id) => {
     if (a.title > b.title) {
       return 1;
     }
+
+    return 0;
   });
   renderSongs(userData?.songs);
   highlightCurrentSong();
